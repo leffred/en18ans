@@ -44,8 +44,8 @@ const STAT_INFO: Record<string, StatExplanation> = {
   "Patrimoine Arboré": {
     title: "Inventaire du Patrimoine Arboré",
     source: "Open Data Boulogne-Billancourt",
-    period: "2023",
-    description: "La ville recense environ 9 188 arbres sur l'espace public. Les arbres matures sont les seuls climatiseurs naturels de la ville, abattre de grands arbres pour en replanter des jeunes est un non-sens écologique."
+    period: "Evolution 2019 - 2024",
+    description: "La ville recense 9 188 arbres sur l'espace public aujourd'hui, contre 9 471 en 2019 (soit une perte globale de près de 300 arbres en 5 ans). L'abattage récurrent d'arbres matures (les seuls climatiseurs naturels de la ville) remplace une canopée protectrice par des îlots de chaleur."
   },
   "Réseau Cyclable": {
     title: "Maillage Cyclable",
@@ -123,9 +123,10 @@ export const StatsGrid: React.FC<{ data: NeighborhoodStat }> = ({ data }) => {
           <StatCard
             title="Patrimoine Arboré"
             value={data.kpi_trees.toLocaleString('fr-FR')}
-            label={data.is_radius ? "< 500m" : "Arbres en ville"}
+            label={data.is_radius ? `- ${Math.max(1, Math.round(data.kpi_trees * (9471/9188 - 1)))} abattus (depuis 2019)` : "- 283 arbres perdus villes"}
             icon={<Trees className="w-5 h-5 text-emerald-600" />}
-            trend="good"
+            trend="warning"
+            trendIcon={<TrendingDown className="w-4 h-4 ml-1" />}
             onClick={() => openModal("Patrimoine Arboré")}
           />
         )}
