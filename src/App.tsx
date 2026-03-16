@@ -95,6 +95,10 @@ function App() {
     displayData.is_radius = true;
     displayData.kpi_trees = getTreesInRadius(userLocation.coordinates);
     displayData.kpi_bike_paths = parseFloat(getBikePathsInRadius(userLocation.coordinates).toFixed(2));
+  } else if (displayData.coords) {
+    // If no user location but we clicked a neighborhood with predefined coords
+    displayData.kpi_trees = getTreesInRadius(displayData.coords);
+    displayData.kpi_bike_paths = parseFloat(getBikePathsInRadius(displayData.coords).toFixed(2));
   }
 
   return (
