@@ -23,7 +23,13 @@ export const LeadCapture: React.FC<{ neighborhood: NeighborhoodStat }> = ({ neig
       ]);
 
       if (error) {
-         throw error;
+        if (error.code === '23505') {
+          // 23505 is the PostgreSQL error code for unique violation
+          setStatus('success'); // Pretend it succeeded for user experience
+          console.log('Email already exists, ignoring.');
+          return;
+        }
+        throw error;
       } else {
         setStatus('success');
       }
