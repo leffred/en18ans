@@ -16,9 +16,11 @@ export const LeadCapture: React.FC<{ neighborhood: NeighborhoodStat }> = ({ neig
       const { error } = await supabase.from('leads_campagne').insert([
         { 
           email, 
-          neighborhood: neighborhood.slug,
+          neighborhood: neighborhood.slug === 'all' ? 'Boulogne-Billancourt' : neighborhood.display_name,
           kpi_beton: neighborhood.kpi_beton,
-          kpi_debt: neighborhood.kpi_debt || 98400000 // Fallback to total debt if missing
+          kpi_debt: neighborhood.kpi_debt || 98400000,
+          kpi_density: neighborhood.kpi_density,
+          kpi_saturation: neighborhood.kpi_saturation
         }
       ]);
 

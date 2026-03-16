@@ -7,6 +7,8 @@ CREATE TABLE public.leads_campagne (
     neighborhood TEXT,
     kpi_beton INTEGER,
     kpi_debt INTEGER,
+    kpi_density INTEGER,
+    kpi_saturation INTEGER,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 

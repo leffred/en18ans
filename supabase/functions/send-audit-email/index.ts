@@ -21,8 +21,10 @@ serve(async (req) => {
 
     const email = record.email
     const neighborhood = record.neighborhood || 'votre quartier'
-    const kpi_beton = record.kpi_beton !== null ? record.kpi_beton : 'N/A'
+    const kpi_beton = record.kpi_beton !== null ? record.kpi_beton : '37'
     const kpi_debt = record.kpi_debt ? (record.kpi_debt / 1000000).toFixed(1) + ' M€' : '98,4 M€'
+    const kpi_density = record.kpi_density !== null ? record.kpi_density : '18 000'
+    const kpi_saturation = record.kpi_saturation !== null ? record.kpi_saturation : '100'
 
     // HTML Email Template
     const htmlEmail = `
@@ -38,23 +40,36 @@ serve(async (req) => {
         
         <div style="background-color: #f9fafb; padding: 30px; border-radius: 0 0 12px 12px; border: 1px solid #e5e7eb; border-top: none;">
           <p style="font-size: 16px;">Bonjour,</p>
-          <p style="font-size: 16px;">Vous avez demandé à recevoir le bilan chiffré concernant la qualité de vie dans votre quartier. Voici les chiffres clés que la municipalité actuelle a générés :</p>
+          <p style="font-size: 16px;">Vous avez demandé à recevoir le bilan chiffré concernant la qualité de vie dans votre quartier. Voici les 4 chiffres clés que la municipalité actuelle a générés :</p>
           
-          <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid #e11d48; margin-bottom: 20px;">
+          <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid #e11d48; margin-bottom: 15px;">
             <p style="margin: 0; font-weight: bold; color: #9f1239;">Bétonnisation de votre quartier :</p>
-            <p style="font-size: 24px; font-weight: 900; margin: 5px 0 0 0; color: #e11d48;">${kpi_beton}% de surface bâtie</p>
+            <p style="font-size: 22px; font-weight: 900; margin: 5px 0 0 0; color: #e11d48;">${kpi_beton}% de surface bâtie</p>
           </div>
-
-          <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid #e11d48; margin-bottom: 20px;">
-            <p style="margin: 0; font-weight: bold; color: #9f1239;">Dette record par habitant :</p>
-            <p style="font-size: 24px; font-weight: 900; margin: 5px 0 0 0; color: #111827;">${kpi_debt}</p>
-          </div>
-
-          <p style="font-size: 16px;">Il est urgent de changer de direction pour stopper cette sur-densification et rétablir les équilibres financiers de notre ville.</p>
           
-          <a href="https://boulogne2026.fr" style="display: inline-block; background-color: #111827; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; margin-top: 10px;">
-            Découvrir notre projet pour 2026
-          </a>
+          <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid #e11d48; margin-bottom: 15px;">
+            <p style="margin: 0; font-weight: bold; color: #9f1239;">Densité de population :</p>
+            <p style="font-size: 22px; font-weight: 900; margin: 5px 0 0 0; color: #111827;">${kpi_density} hab/km²</p>
+            <p style="margin: 5px 0 0 0; font-size: 13px; color: #6b7280;">(moyenne nationale: 106 hab/km²)</p>
+          </div>
+
+          <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid #e11d48; margin-bottom: 15px;">
+            <p style="margin: 0; font-weight: bold; color: #9f1239;">Saturation des services (écoles, crèches) :</p>
+            <p style="font-size: 22px; font-weight: 900; margin: 5px 0 0 0; color: #111827;">${kpi_saturation}% d'occupation</p>
+          </div>
+
+          <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid #e11d48; margin-bottom: 25px;">
+            <p style="margin: 0; font-weight: bold; color: #9f1239;">Dette cumulée de la ville :</p>
+            <p style="font-size: 22px; font-weight: 900; margin: 5px 0 0 0; color: #111827;">${kpi_debt}</p>
+          </div>
+
+          <p style="font-size: 16px;">Il est urgent de changer de direction pour stopper cette sur-densification et rétablir les équilibres de notre ville.</p>
+          
+          <div style="text-align: center; margin-top: 30px;">
+            <a href="https://www.aimerboulogne.fr" style="display: inline-block; background-color: #059669; color: white; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: bold; font-size: 16px;">
+              Découvrir notre projet pour 2026
+            </a>
+          </div>
         </div>
         
         <p style="color: #6b7280; font-size: 12px; text-align: center; margin-top: 20px;">
