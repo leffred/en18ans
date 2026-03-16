@@ -8,6 +8,7 @@ import { HeroChart } from './components/HeroChart';
 import { LeadCapture } from './components/LeadCapture';
 import { ViralFooter } from './components/ViralFooter';
 import { SourcesPage } from './components/SourcesPage';
+import { QRCodeGenerator } from './components/QRCodeGenerator';
 import { fetchNeighborhoodData, mockData } from './lib/data';
 import { NeighborhoodStat } from './lib/supabase';
 import { getTreesInRadius, getBikePathsInRadius, getDistance } from './lib/geo';
@@ -17,6 +18,7 @@ function App() {
   const [data, setData] = useState<NeighborhoodStat | null>(null);
   const [userLocation, setUserLocation] = useState<AddressResult | null>(null);
   const [showSources, setShowSources] = useState(false);
+  const [isMilitantMode, setIsMilitantMode] = useState(false);
 
   // Sync URL params (virality point)
   useEffect(() => {
@@ -24,6 +26,11 @@ function App() {
     const q = params.get('q');
     if (q && mockData.some(d => d.slug === q)) {
       setSelectedSlug(q);
+    }
+    
+    // Check for militant mode
+    if (params.get('militant') === 'true') {
+      setIsMilitantMode(true);
     }
   }, []);
 
@@ -114,6 +121,10 @@ function App() {
         <LeadCapture neighborhoodSlug={selectedSlug} />
         
         <ViralFooter data={data} onShowSources={() => setShowSources(true)} />
+
+        {isMilitantMode && (
+          <QRCodeGenerator data={mockData} currentSlug={selectedSlug} />
+        )}
       </div>
     </div>
   );
