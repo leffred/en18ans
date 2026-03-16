@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { supabase, NeighborhoodStat } from '../lib/supabase';
 
-export const LeadCapture: React.FC<{ neighborhoodSlug: string }> = ({ neighborhoodSlug }) => {
+export const LeadCapture: React.FC<{ neighborhood: NeighborhoodStat }> = ({ neighborhood }) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -14,7 +14,12 @@ export const LeadCapture: React.FC<{ neighborhoodSlug: string }> = ({ neighborho
     
     try {
       const { error } = await supabase.from('leads_campagne').insert([
-        { email, neighborhood: neighborhoodSlug }
+        { 
+          email, 
+          neighborhood: neighborhood.slug,
+          kpi_beton: neighborhood.kpi_beton,
+          kpi_debt: neighborhood.kpi_debt || 98400000 // Fallback to total debt if missing
+        }
       ]);
 
       if (error) {

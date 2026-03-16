@@ -18,6 +18,7 @@ export type NeighborhoodStat = {
   stat_noise_label: string;
   kpi_trees?: number;
   kpi_bike_paths?: number;
+  kpi_debt?: number;
   is_radius?: boolean;
 };
 

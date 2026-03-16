@@ -5,6 +5,8 @@ CREATE TABLE public.leads_campagne (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     email TEXT NOT NULL UNIQUE,
     neighborhood TEXT,
+    kpi_beton INTEGER,
+    kpi_debt INTEGER,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 

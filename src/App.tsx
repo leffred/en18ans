@@ -119,7 +119,7 @@ function App() {
         
         <HeroChart data={displayData} />
         
-        <LeadCapture neighborhoodSlug={selectedSlug} />
+        <LeadCapture neighborhood={displayData} />
         
         <ViralFooter data={data} onShowSources={() => setShowSources(true)} />
 
