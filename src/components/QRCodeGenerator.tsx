@@ -32,7 +32,7 @@ export const QRCodeGenerator: React.FC<Props> = ({ currentSlug }) => {
   const qrUrl = selectedSlug === 'all' ? baseUrl : `${baseUrl}/?q=${selectedSlug}`;
 
   return (
-    <div className="bg-gray-900 border-t-4 border-emerald-500 p-6 text-white text-center rounded-t-3xl shadow-2xl mt-8">
+    <div className="bg-gray-900 border-t-4 border-emerald-500 p-6 pb-32 text-white text-center rounded-t-3xl shadow-2xl mt-8">
       <div className="flex items-center justify-center space-x-2 mb-4 text-emerald-400">
         <QrCode className="w-6 h-6" />
         <h2 className="text-xl font-bold tracking-tight">Outil Militant : Tractage</h2>
