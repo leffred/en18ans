@@ -65,11 +65,6 @@ serve(async (req) => {
 
           <p style="font-size: 16px;">Il est urgent de changer de direction pour stopper cette sur-densification et rétablir les équilibres de notre ville.</p>
           
-          <div style="text-align: center; margin-top: 30px;">
-            <a href="https://www.aimerboulogne.fr" style="display: inline-block; background-color: #059669; color: white; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: bold; font-size: 16px;">
-              Découvrir notre projet pour 2026
-            </a>
-          </div>
         </div>
         
         <p style="color: #6b7280; font-size: 12px; text-align: center; margin-top: 20px;">
