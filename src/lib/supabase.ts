@@ -20,6 +20,7 @@ export type NeighborhoodStat = {
   kpi_bike_paths?: number;
   kpi_debt?: number;
   is_radius?: boolean;
+  coords?: [number, number];
 };
 
 export type LeadCampagne = {
