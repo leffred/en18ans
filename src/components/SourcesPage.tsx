@@ -113,9 +113,17 @@ export const SourcesPage: React.FC<SourcesPageProps> = ({ onBack }) => {
             <p className="text-sm text-gray-600 mb-2">
               Le calcul autour de votre adresse (rayon de 500m) utilise un algorithme de distance géodésique sur des relevés GPS publics des arbres et itinéraires cyclables franciliens.
             </p>
-            <a href="https://data.iledefrance.fr/explore/" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
-              Source: data.iledefrance.fr
-            </a>
+            <div className="flex flex-col space-y-1 mt-3">
+              <a href="https://data.iledefrance.fr/explore/" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
+                Source: GPSO / data.iledefrance.fr (Cartographie des arbres)
+              </a>
+              <a href="https://www.apur.org/sites/default/files/documents/publication/etudes/note_122_evolution_nature_paris_1730_2017.pdf" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
+                Source: APUR (Évolution de la nature de 1730 à 2017)
+              </a>
+              <a href="https://www.boulognebillancourt.com/information-transversale/actualites/proteger-nos-arbres-une-priorite-pour-la-ville-663" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
+                Source: Mairie (Protéger nos arbres, une priorité)
+              </a>
+            </div>
           </div>
         </div>
 
