@@ -9,6 +9,7 @@ import { LeadCapture } from './components/LeadCapture';
 import { ViralFooter } from './components/ViralFooter';
 import { SourcesPage } from './components/SourcesPage';
 import { QRCodeGenerator } from './components/QRCodeGenerator';
+import { CookieBanner } from './components/CookieBanner';
 import { fetchNeighborhoodData, mockData } from './lib/data';
 import { NeighborhoodStat } from './lib/supabase';
 import { getTreesInRadius, getBikePathsInRadius, getDistance } from './lib/geo';
@@ -125,6 +126,8 @@ function App() {
         {isMilitantMode && (
           <QRCodeGenerator data={mockData} currentSlug={selectedSlug} />
         )}
+
+        <CookieBanner />
       </div>
     </div>
   );
