@@ -13,24 +13,18 @@ export const LeadCapture: React.FC<{ neighborhoodSlug: string }> = ({ neighborho
     setStatus('loading');
     
     try {
-      // In production, Supabase connection needs valid keys setup in .env
       const { error } = await supabase.from('leads_campagne').insert([
         { email, neighborhood_interest: neighborhoodSlug }
       ]);
 
-      if (error && error.message.includes('FetchError')) {
-         // Mock success for preview since DB might not be connected yet
-         setStatus('success');
-      } else if (error) {
+      if (error) {
          throw error;
       } else {
         setStatus('success');
       }
     } catch (err) {
-      console.error(err);
-      setStatus('error'); // Failing gracefully to allow the preview to work
-      // For the demo we'll pretend it succeeded after a small artificial delay
-      setTimeout(() => setStatus('success'), 600);
+      console.error("Supabase insert error:", err);
+      setStatus('error');
     }
   };
 
