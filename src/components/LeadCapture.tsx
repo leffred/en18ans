@@ -14,7 +14,7 @@ export const LeadCapture: React.FC<{ neighborhoodSlug: string }> = ({ neighborho
     
     try {
       const { error } = await supabase.from('leads_campagne').insert([
-        { email, neighborhood_interest: neighborhoodSlug }
+        { email, neighborhood: neighborhoodSlug }
       ]);
 
       if (error) {
