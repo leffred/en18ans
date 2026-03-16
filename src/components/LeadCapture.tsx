@@ -49,7 +49,7 @@ export const LeadCapture: React.FC<{ neighborhood: NeighborhoodStat }> = ({ neig
         <div className="relative z-10">
           <h2 className="text-2xl font-extrabold mb-2 tracking-tight">Le Projet 2026</h2>
           <p className="text-emerald-50 mb-6 text-sm leading-relaxed font-medium">
-            Recevez par email l'audit complet en PDF et nos solutions concrètes pour désaturer Boulogne.
+            Recevez par email l'audit complet en PDF.
           </p>
 
           {status === 'success' ? (
