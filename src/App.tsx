@@ -125,7 +125,7 @@ function App() {
         
         <LeadCapture neighborhood={displayData} />
         
-        <ViralFooter data={data} onShowSources={() => setShowSources(true)} />
+        <ViralFooter data={data} onShowSources={() => setShowSources(true)} isMilitantMode={isMilitantMode} />
 
         {isMilitantMode && (
           <QRCodeGenerator data={mockData} currentSlug={selectedSlug} />
