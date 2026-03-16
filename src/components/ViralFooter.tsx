@@ -113,12 +113,21 @@ export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () =
           />
         )}
 
-        <button 
-          onClick={onShowSources}
-          className="text-xs text-gray-500 font-medium hover:text-emerald-700 transition-colors pointer-events-auto z-10"
-        >
-          Sources & Méthodologie
-        </button>
+        <div className="flex items-center space-x-6 pointer-events-auto z-10">
+          <button 
+            onClick={onShowSources}
+            className="text-xs text-gray-500 font-medium hover:text-emerald-700 transition-colors"
+          >
+            Sources & Méthodologie
+          </button>
+          
+          <a 
+            href="?militant=true"
+            className="text-xs text-emerald-700 font-bold hover:text-emerald-900 transition-colors"
+          >
+            Militant
+          </a>
+        </div>
       </div>
     </>
   );
