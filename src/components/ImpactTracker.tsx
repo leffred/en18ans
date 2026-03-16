@@ -85,6 +85,30 @@ const historicalData = {
       }
     ],
     description: "Un déséquilibre flagrant : Boulogne construit frénétiquement (+11 296 logements) mais la population n'augmente pas proportionnellement (+9 954 habitants). La ville se densifie pour de la spéculation ou des résidences inoccupées, pas pour loger durablement des familles."
+  },
+  costofliving: {
+    title: "Hausse Cantine vs Inflation (Base 100)",
+    labels: ['2015', '2018', '2021', '2022', '2023', '2024'],
+    datasets: [
+      {
+        label: "Tarif Maximum Cantine (+25.4%)",
+        data: [100, 105.1, 108.4, 115.2, 121.0, 125.4],
+        borderColor: 'rgb(225, 29, 72)',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0.1
+      },
+      {
+        label: "Inflation Nationale INSEE (+19.8%)",
+        data: [100, 102.6, 106.4, 111.9, 117.4, 119.8],
+        borderColor: 'rgb(107, 114, 128)',
+        backgroundColor: 'transparent',
+        borderDash: [5, 5],
+        borderWidth: 2,
+        tension: 0.1
+      }
+    ],
+    description: "La Mairie ponctionne la classe moyenne : le tarif de la cantine a explosé de 25,4% depuis 2015 (plafond à 11€), augmentant plus vite que l'inflation (19,8%). Parallèlement, le conservatoire et le sport municipal flambent : la natation ACBB dépasse désormais les 325€/an."
   }
 };
 
@@ -203,6 +227,29 @@ export const ImpactTracker: React.FC = () => {
               </div>
               <div className="text-sm text-gray-600">
                 pour seulement <strong className="text-gray-800">+9 954 habitants</strong> en 15 ans. On construit plus de béton qu'on n'accueille d'habitants. En parallèle, les résidences secondaires et inoccupées ont bondi de <strong className="text-rose-600">+63%</strong>.
+              </div>
+            </div>
+          </button>
+
+          {/* Metric 5: Pouvoir d'achat */}
+          <button 
+            onClick={() => setSelectedMetric('costofliving')}
+            className="text-left bg-rose-50/50 rounded-2xl p-4 border border-rose-100 relative overflow-hidden group hover:shadow-md transition-shadow active:scale-[0.98] cursor-pointer"
+          >
+            <div className="absolute top-0 right-0 p-4 opacity-10 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform">
+              <TrendingUp className="w-24 h-24 text-rose-900" />
+            </div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 text-rose-600 font-semibold mb-1 text-sm">
+                <TrendingUp className="w-4 h-4" />
+                Pouvoir d'Achat
+              </div>
+              <p className="text-gray-900 font-bold mb-2">La folie des tarifs municipaux</p>
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-2xl font-black text-rose-700">+ 25,4%</span>
+              </div>
+              <div className="text-sm text-gray-600">
+                Les prix pénalisent les familles : le repas de cantine a explosé pour atteindre <strong className="text-rose-700">11€</strong> (plus cher que l'école privée). Le sport s'envole avec une inscription ACBB dépassant les <strong className="text-gray-800">325€/an</strong>.
               </div>
             </div>
           </button>

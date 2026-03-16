@@ -48,6 +48,30 @@ export const SourcesPage: React.FC<SourcesPageProps> = ({ onBack }) => {
 
           <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
             <div className="flex items-center space-x-2 mb-2">
+              <ArrowLeft className="w-5 h-5 text-emerald-600" />
+              <h3 className="font-bold text-lg">Inflation Municipale & Tarifs</h3>
+            </div>
+            <p className="text-sm text-gray-600 mb-2">
+              L'évolution des tarifs de la cantine (+25.4%), du conservatoire, et de l'École Municipale des Sports a été extraite des délibérations du Conseil Municipal de 2015 à 2025. L'inflation comparative est basée sur l'IPC de l'INSEE (+19.8% sur la même période). Les tarifs de l'ACBB (Natation) et des réseaux privés (Dupanloup) sont tirés des conventions financières publiques des établissements.
+            </p>
+            <div className="flex flex-col space-y-1 mt-3">
+              <a href="https://www.insee.fr/fr/statistiques/8719836" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
+                Source: INSEE (Indice des prix à la consommation - IPC)
+              </a>
+              <a href="https://eaf.boulognebillancourt.com/transfertAccueil/-1/2194993" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
+                Source: Délibérations du Conseil Municipal (Portail Famille)
+              </a>
+              <a href="https://www.acbb.fr/wp-content/uploads/2025/07/Natation-2025-2026-2.pdf" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
+                Source: Règlement financier ACBB Natation 2025-2026
+              </a>
+              <a href="https://dupanloup.net/etablissement/convention-financiere/" target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
+                Source: Convention Financière - Ecole Dupanloup
+              </a>
+            </div>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+            <div className="flex items-center space-x-2 mb-2">
               <GraduationCap className="w-5 h-5 text-emerald-600" />
               <h3 className="font-bold text-lg">Effectifs Scolaires</h3>
             </div>
