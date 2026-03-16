@@ -10,7 +10,7 @@ import { ViralFooter } from './components/ViralFooter';
 import { SourcesPage } from './components/SourcesPage';
 import { fetchNeighborhoodData, mockData } from './lib/data';
 import { NeighborhoodStat } from './lib/supabase';
-import { getTreesInRadius, getBikePathsInRadius } from './lib/geo';
+import { getTreesInRadius, getBikePathsInRadius, getDistance } from './lib/geo';
 
 function App() {
   const [selectedSlug, setSelectedSlug] = useState('all');
@@ -26,6 +26,33 @@ function App() {
       setSelectedSlug(q);
     }
   }, []);
+
+  // Update slug based on user exact location coordinates
+  useEffect(() => {
+    if (userLocation && userLocation.coordinates) {
+      // Rough center coordinates for each main neighborhood [lon, lat]
+      const neighborhoodCenters = [
+        { slug: 'trapeze', coords: [2.235, 48.828] as [number, number] }, // Sud / Seine
+        { slug: 'centre-ville', coords: [2.240, 48.835] as [number, number] }, // Centre
+        { slug: 'nord', coords: [2.245, 48.845] as [number, number] } // Nord et Bois
+      ];
+      
+      let closestSlug = 'centre-ville';
+      let minDistance = Infinity;
+      
+      for (const center of neighborhoodCenters) {
+        const dist = getDistance(userLocation.coordinates, center.coords);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestSlug = center.slug;
+        }
+      }
+      
+      if (selectedSlug !== closestSlug) {
+        setSelectedSlug(closestSlug);
+      }
+    }
+  }, [userLocation]);
 
   useEffect(() => {
     // Update URL without reload
