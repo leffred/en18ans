@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, X } from 'lucide-react';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+
 export const CookieBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -19,14 +26,18 @@ export const CookieBanner: React.FC = () => {
     setIsVisible(false);
 
     if (accepted) {
-      // Inject Analytics script here dynamically if accepted
-      // Example for Google Analytics:
-      // const script = document.createElement('script');
-      // script.src = `https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`;
-      // document.head.appendChild(script);
-      console.log('Les cookies analytiques ont été acceptés.');
+      // Push consent update to GTM
+      window.dataLayer = window.dataLayer || [];
+      // @ts-ignore
+      const gtag = function() { window.dataLayer.push(arguments); };
+      // @ts-expect-error gtag accepts a variable number of arguments
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted'
+      });
+      console.log('Les cookies analytiques GTM ont été acceptés.');
     } else {
-      console.log('Les cookies analytiques ont été refusés.');
+      console.log('Les cookies analytiques GTM ont été refusés.');
     }
   };
 
