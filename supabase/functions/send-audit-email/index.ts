@@ -69,12 +69,12 @@ serve(async (req) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: \`Bearer \${RESEND_API_KEY}\`,
+        Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Boulogne 2026 <audit@boulogne2026.fr>', // Update this with verified Resend domain
+        from: 'Le Vrai Bilan <audit@en18ans.com>', // Verified domain
         to: [email],
-        subject: \`Votre audit quartier : \${neighborhood}\`,
+        subject: `Votre audit quartier : ${neighborhood}`,
         html: htmlEmail,
       }),
     })
