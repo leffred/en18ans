@@ -52,7 +52,10 @@ export const LegalPage: React.FC<LegalPageProps> = ({ onBack }) => {
               <h3 className="font-bold text-lg">Données Personnelles & Confidentialité</h3>
             </div>
             <p className="text-sm text-gray-600 mb-4">
-              <strong>Zéro conservation de données :</strong> Les adresses saisies dans la barre de recherche sont traitées anonymement. Aucune adresse ou coordonnée GPS n'est conservée ni stockée sur nos serveurs.
+              <strong>Zéro conservation de données de navigation :</strong> Les adresses saisies dans la barre de recherche sont traitées anonymement. Aucune adresse ou coordonnée GPS n'est conservée ni stockée sur nos serveurs.
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              <strong>Collecte d'emails :</strong> Nous stockons l'adresse email des personnes qui s'inscrivent sur le site uniquement dans le but de leur envoyer l'étude de l'état de Boulogne-Billancourt qu'elles ont commandée. Cette adresse n'est utilisée à aucune autre fin, ni politique, ni commerciale. Elle sera supprimée au plus tard le 31 mars 2026 de nos bases de données.
             </p>
             <p className="text-sm text-gray-600">
               Ce site n'utilise pas de cookies de traçage publicitaire. Les éventuels cookies ou stockages locaux utilisés sont strictement anonymes et nécessaires au fonctionnement technique de l'application.
