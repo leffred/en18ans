@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Header } from './components/Header';
 import { NeighborhoodSelector } from './components/NeighborhoodSelector';
 import { AddressSearch, AddressResult } from './components/AddressSearch';
@@ -146,6 +147,7 @@ function App() {
         )}
 
         <CookieBanner />
+        <Analytics />
       </div>
     </div>
   );
