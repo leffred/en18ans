@@ -42,9 +42,12 @@ function App() {
     if (userLocation && userLocation.coordinates) {
       // Rough center coordinates for each main neighborhood [lon, lat]
       const neighborhoodCenters = [
-        { slug: 'trapeze', coords: [2.235, 48.828] as [number, number] }, // Sud / Seine
-        { slug: 'centre-ville', coords: [2.240, 48.835] as [number, number] }, // Centre
-        { slug: 'nord', coords: [2.245, 48.845] as [number, number] } // Nord et Bois
+        { slug: 'parchamp', coords: [2.230, 48.845] as [number, number] },
+        { slug: 'princes', coords: [2.250, 48.843] as [number, number] },
+        { slug: 'silly', coords: [2.230, 48.835] as [number, number] },
+        { slug: 'centre-ville', coords: [2.240, 48.835] as [number, number] },
+        { slug: 'billancourt', coords: [2.235, 48.828] as [number, number] },
+        { slug: 'republique', coords: [2.250, 48.832] as [number, number] }
       ];
       
       let closestSlug = 'centre-ville';
