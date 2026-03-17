@@ -28,6 +28,9 @@ export const LegalPage: React.FC<LegalPageProps> = ({ onBack }) => {
             <p className="text-sm text-gray-600">
               Ce site est édité à titre personnel et non professionnel, conformément à l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN).
             </p>
+            <p className="text-sm text-gray-600 mt-2">
+              <strong>Contact :</strong> <a href="mailto:contact@en18ans.com" className="text-emerald-600 hover:text-emerald-700 underline">contact@en18ans.com</a>
+            </p>
           </div>
 
           <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
