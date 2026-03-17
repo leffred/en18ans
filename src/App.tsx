@@ -8,6 +8,7 @@ import { HeroChart } from './components/HeroChart';
 import { LeadCapture } from './components/LeadCapture';
 import { ViralFooter } from './components/ViralFooter';
 import { SourcesPage } from './components/SourcesPage';
+import { LegalPage } from './components/LegalPage';
 import { QRCodeGenerator } from './components/QRCodeGenerator';
 import { CookieBanner } from './components/CookieBanner';
 import { fetchNeighborhoodData, mockData } from './lib/data';
@@ -19,6 +20,7 @@ function App() {
   const [data, setData] = useState<NeighborhoodStat | null>(null);
   const [userLocation, setUserLocation] = useState<AddressResult | null>(null);
   const [showSources, setShowSources] = useState(false);
+  const [showLegal, setShowLegal] = useState(false);
   const [isMilitantMode, setIsMilitantMode] = useState(false);
 
   // Sync URL params (virality point)
@@ -88,6 +90,10 @@ function App() {
     return <SourcesPage onBack={() => setShowSources(false)} />;
   }
 
+  if (showLegal) {
+    return <LegalPage onBack={() => setShowLegal(false)} />;
+  }
+
   const neighborhoodOptions = mockData.map(d => ({ slug: d.slug, name: d.display_name }));
 
   const displayData = { ...data };
@@ -125,7 +131,12 @@ function App() {
         
         <LeadCapture neighborhood={displayData} />
         
-        <ViralFooter data={data} onShowSources={() => setShowSources(true)} isMilitantMode={isMilitantMode} />
+        <ViralFooter 
+          data={data} 
+          onShowSources={() => setShowSources(true)} 
+          onShowLegal={() => setShowLegal(true)} 
+          isMilitantMode={isMilitantMode} 
+        />
 
         {isMilitantMode && (
           <QRCodeGenerator data={mockData} currentSlug={selectedSlug} />

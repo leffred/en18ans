@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Share2, Facebook, Twitter, Linkedin, Mail, MessageCircle, MessageSquare, X as CloseIcon } from 'lucide-react';
 import { NeighborhoodStat } from '../lib/supabase';
 
-export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () => void, isMilitantMode?: boolean }> = ({ data, onShowSources, isMilitantMode }) => {
+export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () => void, onShowLegal: () => void, isMilitantMode?: boolean }> = ({ data, onShowSources, onShowLegal, isMilitantMode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // We make sure the text is dynamic based on the selected region
@@ -113,12 +113,19 @@ export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () =
           />
         )}
 
-        <div className="flex items-center space-x-6 pointer-events-auto z-10">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 pointer-events-auto z-10">
           <button 
             onClick={onShowSources}
             className="text-xs text-gray-500 font-medium hover:text-emerald-700 transition-colors"
           >
             Sources & Méthodologie
+          </button>
+          
+          <button 
+            onClick={onShowLegal}
+            className="text-xs text-gray-500 font-medium hover:text-emerald-700 transition-colors"
+          >
+            Mentions Légales
           </button>
           
           {isMilitantMode ? (
