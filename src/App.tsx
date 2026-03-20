@@ -21,7 +21,7 @@ function App() {
   const [userLocation, setUserLocation] = useState<AddressResult | null>(null);
   const [showSources, setShowSources] = useState(false);
   const [showLegal, setShowLegal] = useState(false);
-  const [isMilitantMode, setIsMilitantMode] = useState(false);
+  const [isQrCodeMode, setIsQrCodeMode] = useState(false);
 
   // Sync URL params (virality point)
   useEffect(() => {
@@ -31,9 +31,9 @@ function App() {
       setSelectedSlug(q);
     }
     
-    // Check for militant mode
-    if (params.get('militant') === 'true') {
-      setIsMilitantMode(true);
+    // Check for qr code mode
+    if (params.get('qrcode') === 'true') {
+      setIsQrCodeMode(true);
     }
   }, []);
 
@@ -138,10 +138,10 @@ function App() {
           data={data} 
           onShowSources={() => setShowSources(true)} 
           onShowLegal={() => setShowLegal(true)} 
-          isMilitantMode={isMilitantMode} 
+          isQrCodeMode={isQrCodeMode} 
         />
 
-        {isMilitantMode && (
+        {isQrCodeMode && (
           <QRCodeGenerator data={mockData} currentSlug={selectedSlug} />
         )}
 

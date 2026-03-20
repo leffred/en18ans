@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Share2, Facebook, Twitter, Linkedin, Mail, MessageCircle, MessageSquare, X as CloseIcon } from 'lucide-react';
 import { NeighborhoodStat } from '../lib/supabase';
 
-export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () => void, onShowLegal: () => void, isMilitantMode?: boolean }> = ({ data, onShowSources, onShowLegal, isMilitantMode }) => {
+export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () => void, onShowLegal: () => void, isQrCodeMode?: boolean }> = ({ data, onShowSources, onShowLegal, isQrCodeMode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // We make sure the text is dynamic based on the selected region
@@ -128,7 +128,7 @@ export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () =
             Mentions Légales
           </button>
           
-          {isMilitantMode ? (
+          {isQrCodeMode ? (
             <a 
               href="/"
               className="text-xs text-gray-400 font-bold hover:text-gray-600 transition-colors"
@@ -137,7 +137,7 @@ export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () =
             </a>
           ) : (
             <a 
-              href="?militant=true"
+              href="?qrcode=true"
               className="text-xs text-emerald-700 font-bold hover:text-emerald-900 transition-colors"
             >
               QRcode

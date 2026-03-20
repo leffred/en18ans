@@ -25,7 +25,7 @@ export const SourcesPage: React.FC<SourcesPageProps> = ({ onBack }) => {
           <div>
             <h2 className="text-rose-900 font-bold mb-1">Avertissement</h2>
             <p className="text-sm text-rose-800 leading-relaxed">
-              Ce site présente une <strong>interprétation indépendante et militante</strong> de différentes bases de données publiques (OpenData). 
+              Ce site présente une <strong>interprétation indépendante</strong> de différentes bases de données publiques (OpenData). 
               Ni les chiffres ni les conclusions présentées ici n'engagent la responsabilité des administrations productrices des données (INSEE, Ministères, etc.).
               Les comparaisons et agrégations effectuées résultent de choix méthodologiques propres à l'équipe éditrice de ce site.
             </p>
