@@ -140,7 +140,7 @@ export const ViralFooter: React.FC<{ data: NeighborhoodStat, onShowSources: () =
               href="?militant=true"
               className="text-xs text-emerald-700 font-bold hover:text-emerald-900 transition-colors"
             >
-              Militant
+              QRcode
             </a>
           )}
         </div>
